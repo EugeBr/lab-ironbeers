@@ -13,12 +13,13 @@ button {
  background-color: #2081c3;    
  border-radius: 5px;
  font-size: 20px;
+ margin-top: 20px;
 }
 
-.buttons {
+.home {
 display: flex;
 flex-direction: column;
-width: 250px;
+align-items: center;
 margin: 40px;
 }
 
@@ -33,4 +34,18 @@ color: white;
 
 .navbar {
     background-color: #2081c3;    
+}
+
+.beerImg {
+    size: 50px;
+}
+
+.beerAll {
+height: 300px;
+width: 200px;
+}
+
+.grid {
+ display: flex;
+ flex-wrap: wrap;
 }
