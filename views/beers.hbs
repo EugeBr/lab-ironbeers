@@ -1,3 +1,5 @@
-{{#each}}
-    <img src="image" alt="...">
-{{/each}}
+<div>
+{{#each beersFromAPI}}
+    {{> beerPartial this}}
+{{/each}} 
+</div>
