@@ -1,6 +1,5 @@
 <div>
 {{#each randomBeer}}
-    <img src='{{image_url}}' alt='{{name}}' />
-    <h1>{{name}}</h1>
+    {{> randomPartial this}}
 {{/each}} 
 </div>
