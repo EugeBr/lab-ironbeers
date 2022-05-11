@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 // Add the route handlers here:
-
+//* ROUTE FOR GETTING ALL THE BEERS AND IT'S RENDERED ON "/BEERS"
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -31,6 +31,7 @@ app.get('/beers', (req, res) => {
   .catch(error => console.log(error));
 });
 
+//* ROUTE FOR GETTING A RANDOM BEER AND IT'S RENDERED ON "/RANDOM-BEER"
 app.get('/random-beer', (req, res) => {
   punkAPI
   .getRandom()
@@ -40,11 +41,15 @@ app.get('/random-beer', (req, res) => {
   .catch(error => console.log(error));
 });
 
-app.get('/beers/:id', (req, res) => {
-  const { id } = req.params.id;
-  punkAPI.getBeers(id)
-  .then(getBeer => {
-   res.render('beer-pick', getBeer); 
+//* ROUTE FOR GETTING DETAILS OF A SPECIFIC BEER AND IT'S RENDERED ON "/BEERS/someBeerIdGoesHere"
+app.get('/beers/:beerId', (req, res) => {
+  console.log('params:', req.params);
+  const { beerId } = req.params.beerId;
+  punkAPI
+  .getBeer(beerId)
+  .then(beerPick => {
+    console.log(beerPick);
+   res.render('beer-pick', {beerPick}); 
   })
    .catch(error => console.log(error));
 });
